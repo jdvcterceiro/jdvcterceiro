@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aulas do Dia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .current-class {
+            background-color: #ff6347;
+            padding: 15px;
+            margin: 15px;
+            border-radius: 5px;
+            color: white;
+            text-align: center;
+        }
+        .day-container {
+            margin: 10px;
+        }
+        .day-header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .class-list {
+            display: none;
+            padding: 10px;
+            background-color: #eee;
+            margin: 0;
+            list-style-type: none;
+        }
+        .class-list li {
+            padding: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .class-list li:last-child {
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Aula Atual</h1>
+    <div id="current-class" class="current-class">Carregando aula atual...</div>
+</div>
+
+<div class="day-container">
+    <div class="day-header">Segunda-feira</div>
+    <ul class="class-list">
+        <li>19:00-19:45 | Catarina {Matemática}</li>
+        <li>19:45-20:25 | Catarina {Matemática}</li>
+        <li>20:25-20:45 | Intervalo</li>
+        <li>20:45-21:15 | Alan {Filosofia}</li>
+        <li>21:15-22:00 | Celso {Projeto de Vida}</li>
+        <li>22:00-22:45 | Ruth {Física}</li>
+    </ul>
+</div>
+
+<div class="day-container">
+    <div class="day-header">Terça-feira</div>
+    <ul class="class-list">
+        <li>19:00-19:45 | Luana {Educação Financeira}</li>
+        <li>19:45-20:25 | Luana {Educação Financeira}</li>
+        <li>20:25-20:45 | Intervalo</li>
+        <li>20:45-21:15 | Jacob {Artes}</li>
+        <li>21:15-22:00 | Douglas {Inglês}</li>
+        <li>22:00-22:45 | Catarina {Matemática}</li>
+    </ul>
+</div>
+
+<div class="day-container">
+    <div class="day-header">Quarta-feira</div>
+    <ul class="class-list">
+        <li>19:00-19:45 | Marici {Geografia}</li>
+        <li>19:45-20:25 | Marcel {Geopolítica}</li>
+        <li>20:25-20:45 | Intervalo</li>
+        <li>20:45-21:15 | Barbara {Português}</li>
+        <li>21:15-22:00 | Clay {História}</li>
+        <li>22:00-22:45 | Marcel {Geopolítica}</li>
+    </ul>
+</div>
+
+<div class="day-container">
+    <div class="day-header">Quinta-feira</div>
+    <ul class="class-list">
+        <li>19:00-19:45 | João {Redação}</li>
+        <li>19:45-20:25 | João {Redação}</li>
+        <li>20:25-20:45 | Intervalo</li>
+        <li>20:45-21:15 | Douglas {Inglês}</li>
+        <li>21:15-22:00 | Celso {Oratória}</li>
+        <li>22:00-22:45 | Celso {Oratória}</li>
+    </ul>
+</div>
+
+<div class="day-container">
+    <div class="day-header">Sexta-feira</div>
+    <ul class="class-list">
+        <li>19:00-19:45 | Alan {Liderança}</li>
+        <li>19:45-20:25 | Alan {Liderança}</li>
+        <li>20:25-20:45 | Intervalo</li>
+        <li>20:45-21:15 | Ruth {Física}</li>
+        <li>21:15-22:00 | Barbara {Português}</li>
+        <li>22:00-22:45 | Barbara {Português}</li>
+    </ul>
+</div>
+
+<script>
+// Função para obter o horário de Brasília
+async function getBrasiliaTime() {
+    const response = await fetch('https://worldtimeapi.org/api/timezone/America/Sao_Paulo');
+    const data = await response.json();
+    return new Date(data.datetime);
+}
+
+// Função para verificar a aula atual
+function checkCurrentClass(currentTime) {
+    const day = currentTime.getDay(); // 0 = domingo, 1 = segunda-feira
+    const hours = currentTime.getHours();
+    const minutes = currentTime.getMinutes();
+    
+    let currentClass = "Nenhuma aula no momento";
+
+    // Segunda-feira
+    if (day === 1 && hours === 19 && minutes >= 0 && minutes < 45) {
+        currentClass = "Catarina {Matemática} 19:00-19:45";
+    } else if (day === 1 && hours === 19 && minutes >= 45) {
+        currentClass = "Catarina {Matemática} 19:45-20:25";
+    } else if (day === 1 && hours === 20 && minutes >= 45 && minutes < 15) {
+        currentClass = "Alan {Filosofia} 20:45-21:15";
+    }
+    // Adicione verificações para outros dias com base no horário.
+
+    document.getElementById('current-class').innerText = currentClass;
+}
+
+// Expansão das aulas por dia
+const dayHeaders = document.querySelectorAll('.day-header');
+dayHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+        const classList = header.nextElementSibling;
+        classList.style.display = classList.style.display === 'block' ? 'none' : 'block';
+    });
+});
+
+// Atualizar a aula atual
+getBrasiliaTime().then(currentTime => {
+    checkCurrentClass(currentTime);
+});
+</script>
+
+</body>
+</html>
