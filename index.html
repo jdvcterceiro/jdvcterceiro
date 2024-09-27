@@ -7,115 +7,133 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
+            background-color: #0a0f24;
+            color: #fff;
             margin: 0;
             padding: 0;
         }
         .header {
-            background-color: #333;
+            background-color: #1b3b6f;
             color: white;
-            padding: 10px;
+            padding: 20px;
             text-align: center;
-        }
-        .current-class {
-            background-color: #ff6347;
-            padding: 15px;
-            margin: 15px;
-            border-radius: 5px;
-            color: white;
-            text-align: center;
+            border-bottom: 2px solid #11417a;
         }
         .day-container {
-            margin: 10px;
+            margin: 15px;
+            border-radius: 8px;
+            background-color: #162b47;
+            padding: 10px;
         }
         .day-header {
-            background-color: #333;
+            background-color: #1b3b6f;
             color: white;
-            padding: 10px;
+            padding: 15px;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 8px;
         }
         .class-list {
             display: none;
             padding: 10px;
-            background-color: #eee;
+            background-color: #1e2f4d;
             margin: 0;
             list-style-type: none;
         }
         .class-list li {
-            padding: 5px;
-            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            border-bottom: 1px solid #2c4a73;
         }
         .class-list li:last-child {
             border: none;
+        }
+        .past {
+            color: #00ff00; /* Verde para aulas passadas */
+        }
+        .future {
+            color: #ff4040; /* Vermelho para aulas futuras */
+        }
+        .weekend {
+            color: #b0b0b0; /* Cinza para fins de semana */
         }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <h1>Aula Atual</h1>
-    <div id="current-class" class="current-class">Carregando aula atual...</div>
+    <h1>Aulas do Dia</h1>
 </div>
 
 <div class="day-container">
     <div class="day-header">Segunda-feira</div>
     <ul class="class-list">
-        <li>19:00-19:45 | Catarina {Matemática}</li>
-        <li>19:45-20:25 | Catarina {Matemática}</li>
-        <li>20:25-20:45 | Intervalo</li>
-        <li>20:45-21:15 | Alan {Filosofia}</li>
-        <li>21:15-22:00 | Celso {Projeto de Vida}</li>
-        <li>22:00-22:45 | Ruth {Física}</li>
+        <li class="past">19:00-19:45 | Catarina {Matemática}</li>
+        <li class="past">19:45-20:25 | Catarina {Matemática}</li>
+        <li class="past">20:25-20:45 | Intervalo</li>
+        <li class="future">20:45-21:15 | Alan {Filosofia}</li>
+        <li class="future">21:15-22:00 | Celso {Projeto de Vida}</li>
+        <li class="future">22:00-22:45 | Ruth {Física}</li>
     </ul>
 </div>
 
 <div class="day-container">
     <div class="day-header">Terça-feira</div>
     <ul class="class-list">
-        <li>19:00-19:45 | Luana {Educação Financeira}</li>
-        <li>19:45-20:25 | Luana {Educação Financeira}</li>
-        <li>20:25-20:45 | Intervalo</li>
-        <li>20:45-21:15 | Jacob {Artes}</li>
-        <li>21:15-22:00 | Douglas {Inglês}</li>
-        <li>22:00-22:45 | Catarina {Matemática}</li>
+        <li class="future">19:00-19:45 | Luana {Educação Financeira}</li>
+        <li class="future">19:45-20:25 | Luana {Educação Financeira}</li>
+        <li class="future">20:25-20:45 | Intervalo</li>
+        <li class="future">20:45-21:15 | Jacob {Artes}</li>
+        <li class="future">21:15-22:00 | Douglas {Inglês}</li>
+        <li class="future">22:00-22:45 | Catarina {Matemática}</li>
     </ul>
 </div>
 
 <div class="day-container">
     <div class="day-header">Quarta-feira</div>
     <ul class="class-list">
-        <li>19:00-19:45 | Marici {Geografia}</li>
-        <li>19:45-20:25 | Marcel {Geopolítica}</li>
-        <li>20:25-20:45 | Intervalo</li>
-        <li>20:45-21:15 | Barbara {Português}</li>
-        <li>21:15-22:00 | Clay {História}</li>
-        <li>22:00-22:45 | Marcel {Geopolítica}</li>
+        <li class="future">19:00-19:45 | Marici {Geografia}</li>
+        <li class="future">19:45-20:25 | Marcel {Geopolítica}</li>
+        <li class="future">20:25-20:45 | Intervalo</li>
+        <li class="future">20:45-21:15 | Barbara {Português}</li>
+        <li class="future">21:15-22:00 | Clay {História}</li>
+        <li class="future">22:00-22:45 | Marcel {Geopolítica}</li>
     </ul>
 </div>
 
 <div class="day-container">
     <div class="day-header">Quinta-feira</div>
     <ul class="class-list">
-        <li>19:00-19:45 | João {Redação}</li>
-        <li>19:45-20:25 | João {Redação}</li>
-        <li>20:25-20:45 | Intervalo</li>
-        <li>20:45-21:15 | Douglas {Inglês}</li>
-        <li>21:15-22:00 | Celso {Oratória}</li>
-        <li>22:00-22:45 | Celso {Oratória}</li>
+        <li class="future">19:00-19:45 | João {Redação}</li>
+        <li class="future">19:45-20:25 | João {Redação}</li>
+        <li class="future">20:25-20:45 | Intervalo</li>
+        <li class="future">20:45-21:15 | Douglas {Inglês}</li>
+        <li class="future">21:15-22:00 | Celso {Oratória}</li>
+        <li class="future">22:00-22:45 | Celso {Oratória}</li>
     </ul>
 </div>
 
 <div class="day-container">
     <div class="day-header">Sexta-feira</div>
     <ul class="class-list">
-        <li>19:00-19:45 | Alan {Liderança}</li>
-        <li>19:45-20:25 | Alan {Liderança}</li>
-        <li>20:25-20:45 | Intervalo</li>
-        <li>20:45-21:15 | Ruth {Física}</li>
-        <li>21:15-22:00 | Barbara {Português}</li>
-        <li>22:00-22:45 | Barbara {Português}</li>
+        <li class="future">19:00-19:45 | Alan {Liderança}</li>
+        <li class="future">19:45-20:25 | Alan {Liderança}</li>
+        <li class="future">20:25-20:45 | Intervalo</li>
+        <li class="future">20:45-21:15 | Ruth {Física}</li>
+        <li class="future">21:15-22:00 | Barbara {Português}</li>
+        <li class="future">22:00-22:45 | Barbara {Português}</li>
+    </ul>
+</div>
+
+<div class="day-container weekend">
+    <div class="day-header">Sábado</div>
+    <ul class="class-list">
+        <li>Sem aulas.</li>
+    </ul>
+</div>
+
+<div class="day-container weekend">
+    <div class="day-header">Domingo</div>
+    <ul class="class-list">
+        <li>Sem aulas.</li>
     </ul>
 </div>
 
@@ -127,25 +145,38 @@ async function getBrasiliaTime() {
     return new Date(data.datetime);
 }
 
-// Função para verificar a aula atual
-function checkCurrentClass(currentTime) {
+// Função para aplicar a lógica de cores (passado, futuro, fim de semana)
+function applyClassColors(currentTime) {
     const day = currentTime.getDay(); // 0 = domingo, 1 = segunda-feira
     const hours = currentTime.getHours();
     const minutes = currentTime.getMinutes();
-    
-    let currentClass = "Nenhuma aula no momento";
 
-    // Segunda-feira
-    if (day === 1 && hours === 19 && minutes >= 0 && minutes < 45) {
-        currentClass = "Catarina {Matemática} 19:00-19:45";
-    } else if (day === 1 && hours === 19 && minutes >= 45) {
-        currentClass = "Catarina {Matemática} 19:45-20:25";
-    } else if (day === 1 && hours === 20 && minutes >= 45 && minutes < 15) {
-        currentClass = "Alan {Filosofia} 20:45-21:15";
+    const classElements = document.querySelectorAll('.class-list li');
+
+    classElements.forEach((classElement) => {
+        const timeRange = classElement.textContent.split('|')[0].trim();
+        const startTime = timeRange.split('-')[0];
+        const endTime = timeRange.split('-')[1];
+
+        const [startHour, startMinute] = startTime.split(':').map(Number);
+        const [endHour, endMinute] = endTime.split(':').map(Number);
+
+        const startDateTime = new Date(currentTime);
+        startDateTime.setHours(startHour, startMinute);
+
+        const endDateTime = new Date(currentTime);
+        endDateTime.setHours(endHour, endMinute);
+
+        if (currentTime >= endDateTime) {
+            classElement.classList.add('past');
+        } else if (currentTime < startDateTime) {
+            classElement.classList.add('future');
+        }
+    });
+
+    if (day === 0 || day === 6) {
+        document.querySelectorAll('.weekend').forEach(el => el.style.display = 'block');
     }
-    // Adicione verificações para outros dias com base no horário.
-
-    document.getElementById('current-class').innerText = currentClass;
 }
 
 // Expansão das aulas por dia
@@ -157,9 +188,9 @@ dayHeaders.forEach(header => {
     });
 });
 
-// Atualizar a aula atual
+// Atualizar a exibição de cores de acordo com o horário
 getBrasiliaTime().then(currentTime => {
-    checkCurrentClass(currentTime);
+    applyClassColors(currentTime);
 });
 </script>
 
